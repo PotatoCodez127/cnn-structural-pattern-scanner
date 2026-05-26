@@ -3,6 +3,8 @@
 ## Overview
 This project is a 1D Convolutional Neural Network (CNN) designed to act as the "eyes" of an algorithmic trading bot. Instead of looking at individual data points, it scans a 50-candle window of XAUUSD closing prices to detect macroscopic geometrical shapes, successfully classifying Double Bottoms, Double Tops, and Market Noise.
 
+![visual representation](./img/visual_demonstration.png)
+
 ## Architecture
 * **Inputs:** 1D sequence of length 50 (Batch, 1 Channel, 50 Timesteps).
 * **Network:** 1D Convolutional Neural Network.
