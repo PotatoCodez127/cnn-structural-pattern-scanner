@@ -2,6 +2,8 @@
 
 An enterprise-grade 1D Convolutional Neural Network (1D-CNN) engineered in PyTorch to serve as a pre-trade structural filter for quantitative execution engines. The module processes sliding windows of closing prices to detect geometric consolidation structures—classifying Double Bottoms, Double Tops, and Market Noise to validate breakout signals.
 
+![visual representation](./img/visual_demonstration.png)
+
 ## Role in the Omni-Agent Ecosystem
 This module functions as an out-of-sample execution gateway. When prior filters signal volatility expansion, this scanner confirms whether the price is breaking out of a verified macroeconomic geometry (e.g., a Double Bottom neckline), filtering out low-probability false breakouts and optimizing execution accuracy.
 
