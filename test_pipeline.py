@@ -33,6 +33,4 @@ def test_model_loss_computation():
     outputs = model(inputs)
     loss = criterion(outputs, targets)
 
-    assert (
-        loss.item() > 0.0
-    ), "Loss computation returned invalid zero or negative value."
+    assert loss.item() > 0.0, "Loss computation returned invalid zero or negative value."

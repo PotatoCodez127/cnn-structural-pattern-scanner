@@ -41,9 +41,7 @@ def train_and_test():
         confidence = probabilities[i][predicted_class].item() * 100
 
         print(f"Chart {i+1} Actual OOS: {classes[y_test[i].item()]}")
-        print(
-            f"Engine Output: {classes[predicted_class]} ({confidence:.1f}% confidence)\n"
-        )
+        print(f"Engine Output: {classes[predicted_class]} ({confidence:.1f}% confidence)\n")
 
 
 if __name__ == "__main__":
