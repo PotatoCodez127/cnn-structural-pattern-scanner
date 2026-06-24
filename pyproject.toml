@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xau-structural-pattern-scanner"
+version = "0.1.0"
+description = "A 1D Convolutional Neural Network designed to scan XAUUSD closing price windows for structural chart patterns."
+readme = "README.md"
+authors = [
+    { name = "Jeandre" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.22.0",
+    "matplotlib>=3.5.0"
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "N"]
+ignore = []
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = ["X", "X_train", "X_val", "X_test", "X_new", "y", "y_real"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
