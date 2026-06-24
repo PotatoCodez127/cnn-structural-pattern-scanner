@@ -2,10 +2,11 @@
 import torch
 import numpy as np
 
+
 def generate_chart_patterns(samples=1000, seed=None):
     """
     Generates synthetic XAUUSD structural patterns for isolated out-of-sample validation.
-    
+
     Classes:
     0: Market Noise
     1: Double Bottom (W Shape)
@@ -17,13 +18,13 @@ def generate_chart_patterns(samples=1000, seed=None):
 
     # Sequences of 50 closing prices
     # [Batch, Channels (1 for Close price), Sequence Length]
-    X = np.zeros((samples, 1, 50)) 
+    X = np.zeros((samples, 1, 50))
     y = np.zeros(samples)
-    
+
     for i in range(samples):
         pattern_type = np.random.choice([0, 1, 2])
         close_px = np.linspace(1900, 1950, 50) + np.random.normal(0, 2, 50)
-        
+
         if pattern_type == 1:  # Inject a 'W' shape
             close_px[10:20] -= np.linspace(0, 20, 10)
             close_px[20:30] += np.linspace(0, 20, 10)
@@ -38,7 +39,7 @@ def generate_chart_patterns(samples=1000, seed=None):
             y[i] = 2
         else:
             y[i] = 0  # Market Noise baseline
-            
+
         X[i, 0, :] = close_px
-        
+
     return torch.FloatTensor(X), torch.LongTensor(y)
