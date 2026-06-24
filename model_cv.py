@@ -7,7 +7,8 @@ class PatternScanner(nn.Module):
         super(PatternScanner, self).__init__()
 
         # Convolutional Block
-        # in_channels=1 (just price), out_channels=16 (16 different sliding kernels), kernel_size=5 (looks at 5 candles at a time)
+        # in_channels=1 (just price), out_channels=16 (16 different sliding kernels), 
+        #   kernel_size=5 (looks at 5 candles at a time)
         self.conv1 = nn.Conv1d(in_channels=1, out_channels=16, kernel_size=5)
         self.relu = nn.ReLU()
 
@@ -15,7 +16,8 @@ class PatternScanner(nn.Module):
         self.pool = nn.MaxPool1d(kernel_size=2)
 
         # Fully Connected Block (Translates the visual features into classifications)
-        # After convolution and pooling of a length-50 sequence, we end up with 16 channels of length 23
+        # After convolution and pooling of a length-50 sequence, we end up with 16 channels 
+        #   of length 23
         self.flatten = nn.Flatten()
         self.fc1 = nn.Linear(16 * 23, 32)
         self.fc2 = nn.Linear(32, 3)  # 3 outputs: Noise, Double Bottom, Double Top
